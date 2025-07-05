@@ -10,7 +10,7 @@ import net.sylviameows.tentorium.modes.BaseModes.Mode;
 import net.sylviameows.tentorium.modes.Parkour;
 import net.sylviameows.tentorium.modes.BaseModes.TrackedScore;
 import net.sylviameows.tentorium.modes.FFAModes.KitFFA;
-import net.sylviameows.tentorium.utilities.Palette;
+import net.sylviameows.tentorium.utilities.GameUtilities;
 import net.sylviameows.tentorium.values.Spawn;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -252,12 +252,12 @@ public class GameCommands {
             if (sender instanceof Player player) {
                 var db = TentoriumCore.database();
                 var uuid = player.getUniqueId().toString();
-                player.sendMessage(Component.text("Game Stats:").color(Palette.LIME));
+                player.sendMessage(Component.text("Game Stats:").color(GameUtilities.Palette.LIME));
                 TentoriumCore.modes.forEach((id, mode) -> {
                     if (mode instanceof TrackedScore ts) {
-                        player.sendMessage(Component.text(": ").color(Palette.GRAY).append(mode.name())
-                                .append(Component.text(" - ").color(Palette.GRAY))
-                                .append(Component.text(db.fetchInt(uuid, ts.leaderboardStatId()) + " " + ts.leaderboardStatName()).color(Palette.WHITE))
+                        player.sendMessage(Component.text(": ").color(GameUtilities.Palette.GRAY).append(mode.name())
+                                .append(Component.text(" - ").color(GameUtilities.Palette.GRAY))
+                                .append(Component.text(db.fetchInt(uuid, ts.leaderboardStatId()) + " " + ts.leaderboardStatName()).color(GameUtilities.Palette.WHITE))
                         );
                     }
                 });
@@ -294,9 +294,9 @@ public class GameCommands {
                 response.forEach((place, lp) -> {
                     if (lp == null) return;
                     reference.getAndUpdate(component -> component.appendNewline());
-                    var line = Component.text(place + ". " + lp.name()).color(Palette.WHITE)
-                            .append(Component.text(" - ").color(Palette.GRAY))
-                            .append(Component.text(lp.score() + " " + tracked.leaderboardStatName()).color(Palette.WHITE));
+                    var line = Component.text(place + ". " + lp.name()).color(GameUtilities.Palette.WHITE)
+                            .append(Component.text(" - ").color(GameUtilities.Palette.GRAY))
+                            .append(Component.text(lp.score() + " " + tracked.leaderboardStatName()).color(GameUtilities.Palette.WHITE));
                     reference.getAndUpdate(component -> component.append(line));
                 });
                 sender.sendMessage(reference.get());

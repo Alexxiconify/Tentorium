@@ -22,7 +22,6 @@ import net.sylviameows.tentorium.config.Config;
 import net.sylviameows.tentorium.config.serializable.SpleefConfig;
 import net.sylviameows.tentorium.config.serializable.spleef.ClassicFloors;
 import net.sylviameows.tentorium.utilities.GameUtilities;
-import net.sylviameows.tentorium.utilities.Palette;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -77,10 +76,10 @@ public class SpleefModes {
                 winner(winner);
 
                 players.forEach(p -> {
-                    p.sendMessage(winner.name().color(Palette.AQUA).append(Component.text(" won the match!").color(Palette.WHITE)));
+                    p.sendMessage(winner.name().color(GameUtilities.Palette.AQUA).append(Component.text(" won the match!").color(GameUtilities.Palette.WHITE)));
                     p.showTitle(Title.title(
-                            Component.text(winner.getName()).color(Palette.AQUA),
-                            Component.text("won the match!").color(Palette.WHITE),
+                            Component.text(winner.getName()).color(GameUtilities.Palette.AQUA),
+                            Component.text("won the match!").color(GameUtilities.Palette.WHITE),
                             Title.Times.times(Duration.ofMillis(500), Duration.ofSeconds(2), Duration.ofMillis(500))
                     ));
                 });
@@ -134,7 +133,7 @@ public class SpleefModes {
         protected void setupPlayer(Player player) {}
         protected void winner(Player player) {
             var name = PlainTextComponentSerializer.plainText().serialize(name());
-            player.sendMessage(Component.text("(+1 "+ name.toLowerCase() +" win)").color(Palette.GRAY));
+            player.sendMessage(Component.text("(+1 "+ name.toLowerCase() +" win)").color(GameUtilities.Palette.GRAY));
             player.playSound(Sound.sound(Key.key("minecraft", "entity.arrow.hit_player"), Sound.Source.PLAYER, 0.3f, 0.9f));
         }
 
@@ -142,7 +141,7 @@ public class SpleefModes {
             if (seconds_left <= 0) {
                 players.forEach(player -> {
                     player.showTitle(Title.title(
-                            Component.text("GO").color(Palette.LIME).decorate(TextDecoration.BOLD),
+                            Component.text("GO").color(GameUtilities.Palette.LIME).decorate(TextDecoration.BOLD),
                             Component.empty(),
                             Title.Times.times(Duration.ZERO, Duration.ofSeconds(1), Duration.ofMillis(250))
                     ));
@@ -153,7 +152,7 @@ public class SpleefModes {
             }
 
             players.forEach(player -> {
-                TextColor color = Palette.YELLOW;
+                TextColor color = GameUtilities.Palette.YELLOW;
                 Sound sound = Sound.sound(Key.key("block.note_block.bit"), Sound.Source.PLAYER, 1f, 2f);
                 if (seconds_left <= 3) {
                     player.showTitle(Title.title(
@@ -193,7 +192,7 @@ public class SpleefModes {
     public static class ClassicSpleef extends Spleef {
         @Override
         public Component name() {
-            return super.name().color(Palette.AQUA);
+            return super.name().color(GameUtilities.Palette.AQUA);
         }
 
         @Override

@@ -1,10 +1,9 @@
 package net.sylviameows.tentorium.config.serializable;
 
 import net.sylviameows.tentorium.config.serializable.spleef.FloorsConfig;
-import net.sylviameows.tentorium.utilities.Area;
+import net.sylviameows.tentorium.utilities.GameUtilities;
 import org.bukkit.Location;
 import org.jetbrains.annotations.NotNull;
-import net.sylviameows.tentorium.utilities.GameUtilities;
 import net.sylviameows.tentorium.modes.BaseModes.TrackedScore;
 import net.sylviameows.tentorium.modes.BaseModes.ConfigurableMode;
 
@@ -14,7 +13,7 @@ public class SpleefConfig extends ModeConfig {
     public static String ALIAS = "spleef_mode";
     FloorsConfig floors;
 
-    public SpleefConfig(FloorsConfig floors, Location location, int void_level, Area spawn_area) {
+    public SpleefConfig(FloorsConfig floors, Location location, int void_level, GameUtilities.Area spawn_area) {
         super(location, void_level, spawn_area);
 
         this.floors = floors;
