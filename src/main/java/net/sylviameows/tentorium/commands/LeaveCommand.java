@@ -1,19 +1,11 @@
 package net.sylviameows.tentorium.commands;
 
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.TextDecoration;
 import net.sylviameows.tentorium.PlayerManager;
-import net.sylviameows.tentorium.TentoriumCore;
-import net.sylviameows.tentorium.utilities.Palette;
 import net.sylviameows.tentorium.values.Spawn;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 
 import static net.sylviameows.tentorium.SpawnListener.giveSelector;
