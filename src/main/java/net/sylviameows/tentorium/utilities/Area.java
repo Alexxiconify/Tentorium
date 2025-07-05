@@ -7,7 +7,6 @@ import org.bukkit.block.Block;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
-import net.kyori.adventure.text.Component;
 
 import java.util.HashMap;
 import java.util.List;

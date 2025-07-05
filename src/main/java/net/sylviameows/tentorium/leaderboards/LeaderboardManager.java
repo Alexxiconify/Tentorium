@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class LeaderboardManager {
-    private final HashMap<Mode, Leaderboard> boards = new HashMap();
+    private final HashMap<Mode, Leaderboard> boards = new HashMap<>();
 
     public class Leaderboard {
         private Location location;
