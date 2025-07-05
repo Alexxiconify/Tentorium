@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f0b62a1-8d41-4e0b-8e39-41b3598349dd" name="Changes" comment="0.0.0.1.4">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/utilities/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/utilities/Area.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/net/sylviameows/tentorium/utilities/Area.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/sylviameows/tentorium/utilities/Area.class" afterDir="false" />
-    </list>
+    <list default="true" id="6f0b62a1-8d41-4e0b-8e39-41b3598349dd" name="Changes" comment="0.0.0.1.4" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -306,7 +303,79 @@
       <option name="project" value="LOCAL" />
       <updated>1751676683113</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="0.0.0.1.4">
+      <option name="closed" value="true" />
+      <created>1751676719225</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1751676719225</updated>
+    </task>
+    <task id="LOCAL-00025" summary="0.0.0.1.4">
+      <option name="closed" value="true" />
+      <created>1751676778645</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1751676778645</updated>
+    </task>
+    <task id="LOCAL-00026" summary="0.0.0.1.4">
+      <option name="closed" value="true" />
+      <created>1751676807567</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1751676807567</updated>
+    </task>
+    <task id="LOCAL-00027" summary="0.0.0.1.4">
+      <option name="closed" value="true" />
+      <created>1751676820128</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1751676820128</updated>
+    </task>
+    <task id="LOCAL-00028" summary="0.0.0.1.4">
+      <option name="closed" value="true" />
+      <created>1751676845485</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1751676845485</updated>
+    </task>
+    <task id="LOCAL-00029" summary="0.0.0.1.4">
+      <option name="closed" value="true" />
+      <created>1751676883674</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1751676883674</updated>
+    </task>
+    <task id="LOCAL-00030" summary="0.0.0.1.4">
+      <option name="closed" value="true" />
+      <created>1751676919324</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1751676919324</updated>
+    </task>
+    <task id="LOCAL-00031" summary="0.0.0.1.4">
+      <option name="closed" value="true" />
+      <created>1751676941835</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1751676941835</updated>
+    </task>
+    <task id="LOCAL-00032" summary="0.0.0.1.4">
+      <option name="closed" value="true" />
+      <created>1751676961267</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1751676961267</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
