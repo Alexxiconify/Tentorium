@@ -9,7 +9,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,14 +23,18 @@ public class SetLeaderboardCommand implements CommandExecutor, TabCompleter {
                 player.sendMessage("Usage: /setleaderboard <mode>");
                 return true;
             }
-            String mode_name = args[0];
-            Mode mode = TentoriumCore.modes.get(mode_name);
+            String modeName = args[0];
+            if (modeName == null || modeName.isEmpty()) {
+                player.sendMessage("Usage: /setleaderboard <mode>");
+                return true;
+            }
+            Mode mode = TentoriumCore.modes.get(modeName);
 
             if (mode instanceof TrackedScore) {
                 location.setPitch(0);
                 location.setYaw(0);
                 TentoriumCore.leaderboard().put(mode, location);
-                player.sendMessage("Leaderboard location set for " + mode_name);
+                player.sendMessage("Leaderboard location set for " + modeName);
             } else {
                 sender.sendMessage("Mode does not have trackable stats.");
             }
@@ -42,7 +45,7 @@ public class SetLeaderboardCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
         if (args.length <= 1) {
             List<String> suggestions = new ArrayList<>();
             TentoriumCore.modes.forEach((id, mode) -> {

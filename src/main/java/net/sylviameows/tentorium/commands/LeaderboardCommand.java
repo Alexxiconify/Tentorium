@@ -12,7 +12,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,12 +22,15 @@ public class LeaderboardCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (args.length < 1) {
-            sender.sendMessage("Provide a mode argument to view a leaderboard.");
+            sender.sendMessage("Usage: /leaderboard <mode>");
             return true;
         }
-        
-        String mode_name = args[0];
-        Mode mode = TentoriumCore.modes.get(mode_name);
+        String modeName = args[0];
+        if (modeName == null || modeName.isEmpty()) {
+            sender.sendMessage("Usage: /leaderboard <mode>");
+            return true;
+        }
+        Mode mode = TentoriumCore.modes.get(modeName);
 
         if (mode instanceof TrackedScore tracked) {
             LeaderboardResponse response;
@@ -59,7 +61,7 @@ public class LeaderboardCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
         if (args.length <= 1) {
             List<String> suggestions = new ArrayList<>();
             TentoriumCore.modes.forEach((id, mode) -> {
