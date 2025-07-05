@@ -8,7 +8,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.Nullable;
 
 import java.util.Collections;
 import java.util.List;
@@ -27,12 +26,14 @@ public class BypassCommand implements CommandExecutor, TabCompleter {
                 settings.mode(new Bypass());
                 player.sendMessage("Enabled protection bypass.");
             }
+        } else {
+            sender.sendMessage("You must be a player to run this command.");
         }
         return true;
     }
 
     @Override
-    public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
         return Collections.emptyList();
     }
 }
