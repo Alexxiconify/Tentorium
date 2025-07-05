@@ -39,7 +39,7 @@ public class ClassicSpleef extends Spleef {
     protected void setupPlayer(Player player) {
         var inventory = player.getInventory();
         inventory.clear();
-        inventory.addItem(ItemUtilities.createItem(Material.DIAMOND_SHOVEL, meta -> meta.addEnchant(Enchantment.DIG_SPEED, 5, true)));
+        inventory.addItem(ItemUtilities.createItem(Material.DIAMOND_SHOVEL, meta -> meta.addEnchant(Enchantment.EFFICIENCY, 5, true)));
     }
 
     @Override

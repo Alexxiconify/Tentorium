@@ -12,7 +12,7 @@ public class RoyalKit extends Kit {
 //        items.put(8, ItemUtilities.createItem(Material.COOKED_BEEF, 16));
 
         items.put(36, ItemUtilities.createItem(Material.IRON_BOOTS));
-        items.put(37, ItemUtilities.createItem(Material.IRON_LEGGINGS, meta -> meta.addEnchant(Enchantment.PROTECTION_PROJECTILE, 1, true)));
+        items.put(37, ItemUtilities.createItem(Material.IRON_LEGGINGS, meta -> meta.addEnchant(Enchantment.PROJECTILE_PROTECTION, 1, true)));
         items.put(38, ItemUtilities.createItem(Material.DIAMOND_CHESTPLATE));
         items.put(39, ItemUtilities.createItem(Material.IRON_HELMET));
 
