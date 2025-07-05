@@ -2,6 +2,7 @@ package net.sylviameows.tentorium.utilities.gui;
 
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
+import net.kyori.adventure.text.Component;
 
 import java.util.HashSet;
 import java.util.List;
@@ -24,7 +25,7 @@ public final class Template {
     }
 
     public Inventory createInventory(){
-        return Bukkit.createInventory(null, slotsChars.length, invName);
+        return Bukkit.createInventory(null, slotsChars.length, Component.text(invName));
     }
 
     public void addButtons(AbstractGUI gui, char character, AbstractButton button){
