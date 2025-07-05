@@ -4,7 +4,6 @@ import net.kyori.adventure.text.Component;
 import net.sylviameows.tentorium.PlayerManager;
 import net.sylviameows.tentorium.TentoriumCore;
 import net.sylviameows.tentorium.database.SQLite;
-import org.apache.commons.lang3.StringUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,7 +18,8 @@ public abstract class Mode implements Listener {
     }
 
     public Component name() {
-        String name = StringUtils.capitalize(id());
+        String id = id();
+        String name = id.substring(0, 1).toUpperCase() + id.substring(1).toLowerCase();
         return Component.text(name);
     }
 
