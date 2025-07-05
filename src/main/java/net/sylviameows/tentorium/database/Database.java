@@ -58,7 +58,7 @@ public abstract class Database {
                 consumer.accept(rs);
             }
         } catch (SQLException ex) {
-            core.getLogger().log(Level.SEVERE, Errors.sqlConnectionExecute(), ex);
+            DatabaseError.logExecute(core, ex);
         } finally {
             try {
                 if (ps != null)
@@ -66,7 +66,7 @@ public abstract class Database {
                 if (conn != null)
                     conn.close();
             } catch (SQLException ex) {
-                core.getLogger().log(Level.SEVERE, Errors.sqlConnectionClose(), ex);
+                DatabaseError.logClose(core, ex);
             }
         }
     }
@@ -85,7 +85,7 @@ public abstract class Database {
                 }
             }
         } catch (SQLException ex) {
-            core.getLogger().log(Level.SEVERE, Errors.sqlConnectionExecute(), ex);
+            DatabaseError.logExecute(core, ex);
         } finally {
             try {
                 if (ps != null)
@@ -93,7 +93,7 @@ public abstract class Database {
                 if (conn != null)
                     conn.close();
             } catch (SQLException ex) {
-                core.getLogger().log(Level.SEVERE, Errors.sqlConnectionClose(), ex);
+                DatabaseError.logClose(core, ex);
             }
         }
     }
@@ -112,7 +112,7 @@ public abstract class Database {
             ps.executeUpdate();
             return;
         } catch (SQLException ex) {
-            core.getLogger().log(Level.SEVERE, Errors.sqlConnectionExecute(), ex);
+            DatabaseError.logExecute(core, ex);
         } finally {
             try {
                 if (ps != null)
@@ -120,7 +120,7 @@ public abstract class Database {
                 if (conn != null)
                     conn.close();
             } catch (SQLException ex) {
-                core.getLogger().log(Level.SEVERE, Errors.sqlConnectionClose(), ex);
+                DatabaseError.logClose(core, ex);
             }
         }
     }
@@ -130,7 +130,7 @@ public abstract class Database {
             try {
                 statement.setString(1, value);
             } catch (SQLException ex) {
-                core.getLogger().log(Level.SEVERE, Errors.sqlConnectionExecute(), ex);
+                DatabaseError.logExecute(core, ex);
             }
         });
     }
@@ -140,7 +140,7 @@ public abstract class Database {
             try {
                 statement.setInt(1, value);
             } catch (SQLException ex) {
-                core.getLogger().log(Level.SEVERE, Errors.sqlConnectionExecute(), ex);
+                DatabaseError.logExecute(core, ex);
             }
         });
     }
@@ -157,7 +157,7 @@ public abstract class Database {
 
             ps.executeUpdate();
         } catch (SQLException ex) {
-            core.getLogger().log(Level.SEVERE, Errors.sqlConnectionExecute(), ex);
+            DatabaseError.logExecute(core, ex);
         } finally {
             try {
                 if (ps != null)
@@ -165,7 +165,7 @@ public abstract class Database {
                 if (conn != null)
                     conn.close();
             } catch (SQLException ex) {
-                core.getLogger().log(Level.SEVERE, Errors.sqlConnectionClose(), ex);
+                DatabaseError.logClose(core, ex);
             }
         }
     }
@@ -176,7 +176,7 @@ public abstract class Database {
             try {
                 value.set(result.getInt(column));
             } catch (SQLException ex) {
-                core.getLogger().log(Level.SEVERE, Errors.sqlConnectionExecute(), ex);
+                DatabaseError.logExecute(core, ex);
             }
         });
         return value.get();
@@ -191,7 +191,7 @@ public abstract class Database {
 
             ps.execute();
         } catch (SQLException ex) {
-            core.getLogger().log(Level.SEVERE, Errors.sqlConnectionExecute(), ex);
+            DatabaseError.logExecute(core, ex);
         } finally {
             try {
                 if (ps != null)
@@ -199,7 +199,7 @@ public abstract class Database {
                 if (conn != null)
                     conn.close();
             } catch (SQLException ex) {
-                core.getLogger().log(Level.SEVERE, Errors.sqlConnectionClose(), ex);
+                DatabaseError.logClose(core, ex);
             }
         }
 
@@ -214,7 +214,7 @@ public abstract class Database {
             if (rs != null)
                 rs.close();
         } catch (SQLException ex) {
-            Error.close(core, ex);
+            DatabaseError.logClose(core, ex);
         }
     }
 }

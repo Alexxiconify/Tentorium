@@ -37,7 +37,7 @@ public class SQLite extends Database {
                 dataFolder.getParentFile().mkdirs();
                 dataFolder.createNewFile();
             } catch (IOException e) {
-                core.getLogger().log(Level.SEVERE, "File write error: "+dbname+".db");
+                DatabaseError.logExecute(core, e);
             }
         }
         try {
@@ -48,9 +48,9 @@ public class SQLite extends Database {
             connection = DriverManager.getConnection("jdbc:sqlite:" + dataFolder);
             return connection;
         } catch (SQLException ex) {
-            core.getLogger().log(Level.SEVERE,"SQLite exception on initialize", ex);
+            DatabaseError.logExecute(core, ex);
         } catch (ClassNotFoundException ex) {
-            core.getLogger().log(Level.SEVERE, "SQLite JDBC driver not found. This should be included in the shaded JAR.");
+            DatabaseError.logExecute(core, ex);
         }
         return null;
     }
@@ -67,7 +67,7 @@ public class SQLite extends Database {
             s.executeUpdate(CREATE_TABLE_STRING);
             s.close();
         } catch (SQLException e) {
-            core.getLogger().log(Level.SEVERE, "Failed to create SQLite table", e);
+            DatabaseError.logExecute(core, e);
         }
         initialize();
     }

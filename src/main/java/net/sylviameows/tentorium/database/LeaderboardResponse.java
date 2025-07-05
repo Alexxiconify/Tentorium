@@ -8,26 +8,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.BiConsumer;
 
 public class LeaderboardResponse {
-    private Player target = null;
+    private final LeaderboardPlayer[] top_5;
 
-    private LeaderboardPlayer[] top_5;
-
-    /**
-     * Does nothing special at the moment.
-     */
     public LeaderboardResponse(String stat, Player player) {
-        // fixme: target = player;
-        execute(stat);
+        // TODO: Implement target player tracking
+        this.top_5 = execute(stat);
     }
 
     public LeaderboardResponse(String stat) {
-        execute(stat);
+        this.top_5 = execute(stat);
     }
 
-
-    private void execute(String stat) {
+    private LeaderboardPlayer[] execute(String stat) {
         var db = TentoriumCore.database();
-
         LeaderboardPlayer[] top_5 = new LeaderboardPlayer[5];
         AtomicInteger place = new AtomicInteger(0);
 
@@ -35,38 +28,20 @@ public class LeaderboardResponse {
             try {
                 var name = result.getString("name");
                 var score = result.getInt(stat);
-
                 top_5[place.getAndIncrement()] = new LeaderboardPlayer(name, score);
             } catch (SQLException e) {
                 top_5[place.getAndIncrement()] = null;
             }
         });
 
-        this.top_5 = top_5;
-
-        // fixme: this statement doesnt work to get the targets place.
-        if (target != null) {
-            // TODO: Implement target place calculation
-        }
-    }
-
-    public void list(BiConsumer<Integer, LeaderboardPlayer> consumer) {
-        int place = 1;
-        for (LeaderboardPlayer player : top_5) {
-            consumer.accept(place, player);
-            place++;
-        }
+        return top_5;
     }
 
     public void forEach(BiConsumer<Integer, LeaderboardPlayer> consumer) {
-        int place = 1;
-        for (LeaderboardPlayer player : top_5) {
-            consumer.accept(place, player);
-            place++;
+        for (int i = 0; i < top_5.length; i++) {
+            consumer.accept(i + 1, top_5[i]);
         }
     }
-
-
 
     public record LeaderboardPlayer(String name, int score) {
         public String name() {
