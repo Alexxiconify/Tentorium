@@ -10,7 +10,6 @@ import net.sylviameows.tentorium.config.Config;
 import net.sylviameows.tentorium.config.serializable.ModeConfig;
 import net.sylviameows.tentorium.gui.GameModeGUIs;
 import net.sylviameows.tentorium.utilities.GameUtilities;
-import net.sylviameows.tentorium.utilities.Palette;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.block.Action;
@@ -32,6 +31,8 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
+import net.sylviameows.tentorium.modes.BaseModes.TrackedScore;
+import net.sylviameows.tentorium.modes.BaseModes.ConfigurableMode;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -143,7 +144,7 @@ public class FFAModes {
 
         @Override
         public Component name() {
-            return Component.text("Free For All").color(Palette.LIME);
+            return Component.text("Free For All").color(GameUtilities.Palette.LIME);
         }
 
         public KitFFA() {
@@ -216,7 +217,7 @@ public class FFAModes {
             var item = new ItemStack(Material.CHEST_MINECART);
             item.editMeta(meta -> {
                 meta.displayName(Component.text("Select Kit").decorationIfAbsent(TextDecoration.ITALIC, TextDecoration.State.FALSE)
-                        .color(Palette.LIME));
+                        .color(GameUtilities.Palette.LIME));
                 meta.getPersistentDataContainer().set(
                         TentoriumCore.identififer("select_kit"),
                         PersistentDataType.BOOLEAN,
@@ -354,7 +355,7 @@ public class FFAModes {
 
         @Override
         public Component name() {
-            return Component.text("Knockback").color(Palette.PURPLE_LIGHT);
+            return Component.text("Knockback").color(GameUtilities.Palette.PURPLE_LIGHT);
         }
 
         @Override
