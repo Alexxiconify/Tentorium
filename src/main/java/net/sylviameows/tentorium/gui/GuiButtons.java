@@ -3,7 +3,7 @@ package net.sylviameows.tentorium.gui;
 import net.kyori.adventure.text.Component;
 import net.sylviameows.tentorium.PlayerManager;
 import net.sylviameows.tentorium.TentoriumCore;
-import net.sylviameows.tentorium.modes.ffa.KitFFA;
+import net.sylviameows.tentorium.modes.FFAModes.KitFFA;
 import net.sylviameows.tentorium.utilities.gui.ClickableButton;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

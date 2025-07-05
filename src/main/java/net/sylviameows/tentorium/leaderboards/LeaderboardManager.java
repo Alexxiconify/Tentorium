@@ -7,7 +7,7 @@ import net.sylviameows.tentorium.TentoriumCore;
 import net.sylviameows.tentorium.config.Config;
 import net.sylviameows.tentorium.modes.BaseModes.Mode;
 import net.sylviameows.tentorium.modes.BaseModes.TrackedScore;
-import net.sylviameows.tentorium.utilities.Palette;
+import net.sylviameows.tentorium.utilities.GameUtilities.Palette;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Location;
