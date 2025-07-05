@@ -1,6 +1,5 @@
 package net.sylviameows.tentorium.config;
 
-import net.kyori.adventure.text.Component;
 import net.sylviameows.tentorium.TentoriumCore;
 import net.sylviameows.tentorium.config.serializable.AreaConfig;
 import net.sylviameows.tentorium.config.serializable.ModeConfig;
