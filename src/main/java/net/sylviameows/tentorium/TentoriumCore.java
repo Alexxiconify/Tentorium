@@ -5,6 +5,7 @@ import net.sylviameows.tentorium.commands.*;
 import net.sylviameows.tentorium.config.Config;
 import net.sylviameows.tentorium.database.SQLite;
 import net.sylviameows.tentorium.leaderboards.LeaderboardManager;
+import net.sylviameows.tentorium.leaderboards.LeaderboardTask;
 import net.sylviameows.tentorium.modes.Mode;
 import net.sylviameows.tentorium.modes.Parkour;
 import net.sylviameows.tentorium.modes.ffa.KitFFA;
@@ -118,6 +119,7 @@ public class TentoriumCore extends JavaPlugin {
         // Initialize leaderboards
         logger().info("Initializing leaderboards...");
         LEADERBOARD = new LeaderboardManager(this);
+        new LeaderboardTask(this);
         logger().info("Leaderboards initialized!");
 
         logger().info("Tentorium plugin enabled successfully!");

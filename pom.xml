@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <paper.version>1.21.1-R0.1-SNAPSHOT</paper.version>
         <worldedit.version>7.2.15</worldedit.version>
-        <sqlite.version>3.45.1.0</sqlite.version>
+        <sqlite.version>3.44.1.0</sqlite.version>
         <finalName>tentorium</finalName>
     </properties>
 
@@ -107,8 +107,29 @@
                                 <filter>
                                     <artifact>org.xerial:sqlite-jdbc</artifact>
                                     <includes>
-                                        <include>**/*</include>
+                                        <include>org/sqlite/**</include>
+                                        <include>META-INF/services/**</include>
                                     </includes>
+                                </filter>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                        <exclude>META-INF/MANIFEST.MF</exclude>
+                                        <exclude>META-INF/maven/**</exclude>
+                                        <exclude>META-INF/LICENSE*</exclude>
+                                        <exclude>META-INF/NOTICE*</exclude>
+                                        <exclude>META-INF/DEPENDENCIES</exclude>
+                                        <exclude>META-INF/INDEX.LIST</exclude>
+                                        <exclude>META-INF/versions/**</exclude>
+                                        <exclude>module-info.class</exclude>
+                                        <exclude>*.html</exclude>
+                                        <exclude>*.txt</exclude>
+                                        <exclude>*.xml</exclude>
+                                        <exclude>*.properties</exclude>
+                                    </excludes>
                                 </filter>
                             </filters>
                             <relocations>
@@ -117,6 +138,7 @@
                                     <shadedPattern>net.sylviameows.tentorium.libs.sqlite</shadedPattern>
                                 </relocation>
                             </relocations>
+                            <minimizeJar>true</minimizeJar>
                         </configuration>
                     </execution>
                 </executions>
@@ -165,7 +187,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <build>
-                <defaultGoal>compile</defaultGoal>
+                <defaultGoal>clean package</defaultGoal>
             </build>
         </profile>
     </profiles>

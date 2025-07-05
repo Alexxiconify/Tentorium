@@ -63,11 +63,11 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Maven.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Unnamed.executor&quot;: &quot;Profiler#1&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/taylo/Documents/projects/Tentorium-main&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.35287356&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;Shelf.Project.Settings&quot;
@@ -93,7 +93,7 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
-    <configuration name="Unnamed" type="MavenRunConfiguration" factoryName="Maven">
+    <configuration name="t" type="MavenRunConfiguration" factoryName="Maven" activateToolWindowBeforeRun="false">
       <MavenSettings>
         <option name="myGeneralSettings" />
         <option name="myRunnerSettings" />
@@ -462,7 +462,23 @@
       <option name="project" value="LOCAL" />
       <updated>1751677748594</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="0.0.0.1.4">
+      <option name="closed" value="true" />
+      <created>1751677882858</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1751677882858</updated>
+    </task>
+    <task id="LOCAL-00044" summary="0.0.0.1.4">
+      <option name="closed" value="true" />
+      <created>1751677896856</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1751677896856</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">

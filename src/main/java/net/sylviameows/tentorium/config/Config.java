@@ -7,6 +7,7 @@ import net.sylviameows.tentorium.config.serializable.SpleefConfig;
 import net.sylviameows.tentorium.config.serializable.spleef.ClassicFloors;
 import net.sylviameows.tentorium.config.serializable.spleef.TNTFloors;
 import net.sylviameows.tentorium.utilities.Area;
+import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 
@@ -38,5 +39,11 @@ public class Config {
         TentoriumCore.instance().saveConfig();
     }
 
+    public static <T extends org.bukkit.configuration.serialization.ConfigurationSerializable> T getSerializable(String path, Class<T> clazz) {
+        return config.getSerializable(path, clazz);
+    }
 
+    public static Location getLocation(String path) {
+        return config.getLocation(path);
+    }
 }
