@@ -31,7 +31,7 @@ public abstract class Database {
         connection = getSQLConnection();
         try {
             PreparedStatement ps = connection.prepareStatement("SELECT * FROM "+ table +" WHERE uuid = ?");
-            ResultSet rs = ps.executeQuery();
+            ps.executeQuery();
             core.getLogger().info("Database connection successful!");
         } catch (SQLException exception) {
             core.getLogger().severe("Unable to retrieve connection. "+ exception);

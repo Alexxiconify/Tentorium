@@ -9,7 +9,6 @@ import java.util.function.BiConsumer;
 
 public class LeaderboardResponse {
     private Player target = null;
-    private int target_place = -1;
 
     private LeaderboardPlayer[] top_5;
 
@@ -47,13 +46,7 @@ public class LeaderboardResponse {
 
         // fixme: this statement doesnt work to get the targets place.
         if (target != null) {
-            db.executeQuery("SELECT * FROM {{table}} WHERE uuid = '"+ target.getUniqueId() +"' ORDER BY "+stat+" DESC;", result -> {
-                try {
-                    target_place = result.getRow();
-                } catch (SQLException e) {
-                    target_place = -1;
-                }
-            });
+            // TODO: Implement target place calculation
         }
     }
 
