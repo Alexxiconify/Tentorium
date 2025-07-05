@@ -15,7 +15,6 @@ import net.sylviameows.tentorium.TentoriumCore;
 import net.sylviameows.tentorium.config.Config;
 import net.sylviameows.tentorium.config.serializable.SpleefConfig;
 import net.sylviameows.tentorium.config.serializable.spleef.TNTFloors;
-import net.sylviameows.tentorium.utilities.Area;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

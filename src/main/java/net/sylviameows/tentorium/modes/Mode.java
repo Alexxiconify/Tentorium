@@ -5,7 +5,6 @@ import net.sylviameows.tentorium.PlayerManager;
 import net.sylviameows.tentorium.TentoriumCore;
 import net.sylviameows.tentorium.database.SQLite;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.text.WordUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

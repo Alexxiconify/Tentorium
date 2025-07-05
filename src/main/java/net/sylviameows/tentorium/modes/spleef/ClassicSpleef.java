@@ -12,22 +12,17 @@ import com.sk89q.worldedit.world.block.BlockType;
 import net.kyori.adventure.text.Component;
 import net.sylviameows.tentorium.TentoriumCore;
 import net.sylviameows.tentorium.config.Config;
-import net.sylviameows.tentorium.config.serializable.ModeConfig;
 import net.sylviameows.tentorium.config.serializable.SpleefConfig;
 import net.sylviameows.tentorium.config.serializable.spleef.ClassicFloors;
-import net.sylviameows.tentorium.utilities.Area;
 import net.sylviameows.tentorium.utilities.ItemUtilities;
 import net.sylviameows.tentorium.utilities.Palette;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class ClassicSpleef extends Spleef {
     @Override

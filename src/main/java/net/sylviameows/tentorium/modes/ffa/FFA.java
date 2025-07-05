@@ -7,8 +7,6 @@ import net.sylviameows.tentorium.config.serializable.ModeConfig;
 import net.sylviameows.tentorium.modes.ConfigurableMode;
 import net.sylviameows.tentorium.modes.TrackedScore;
 import net.sylviameows.tentorium.modes.Mode;
-import net.sylviameows.tentorium.utilities.Area;
-import org.bukkit.Location;
 import org.bukkit.damage.DamageSource;
 import org.bukkit.damage.DamageType;
 import org.bukkit.entity.Player;
