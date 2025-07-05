@@ -6,7 +6,7 @@ import net.sylviameows.tentorium.config.serializable.ModeConfig;
 import net.sylviameows.tentorium.config.serializable.SpleefConfig;
 import net.sylviameows.tentorium.config.serializable.spleef.ClassicFloors;
 import net.sylviameows.tentorium.config.serializable.spleef.TNTFloors;
-import net.sylviameows.tentorium.utilities.Area;
+import net.sylviameows.tentorium.utilities.GameUtilities;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
@@ -18,7 +18,7 @@ public class Config {
     public Config(TentoriumCore core) {
         this.core = core;
 
-        ConfigurationSerialization.registerClass(Area.class, Area.ALIAS);
+        ConfigurationSerialization.registerClass(GameUtilities.Area.class, GameUtilities.Area.ALIAS);
 
         ConfigurationSerialization.registerClass(AreaConfig.class, AreaConfig.ALIAS);
         ConfigurationSerialization.registerClass(ModeConfig.class, ModeConfig.ALIAS);
