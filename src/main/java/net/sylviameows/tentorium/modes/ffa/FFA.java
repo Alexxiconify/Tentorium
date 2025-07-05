@@ -4,7 +4,6 @@ import net.kyori.adventure.key.Key;
 import net.kyori.adventure.sound.Sound;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.sylviameows.tentorium.config.serializable.ModeConfig;
-import net.sylviameows.tentorium.config.serializable.SpleefConfig;
 import net.sylviameows.tentorium.modes.ConfigurableMode;
 import net.sylviameows.tentorium.modes.TrackedScore;
 import net.sylviameows.tentorium.modes.Mode;
@@ -28,16 +27,19 @@ public abstract class FFA extends Mode implements TrackedScore, ConfigurableMode
     public void playerDeath(PlayerDeathEvent event) {
         var victim = event.getPlayer();
         if (!players.contains(victim)) return;
-        var source = event.getDamageSource().getCausingEntity();
-        if (source instanceof Player killer && event.getDamageSource().getDamageType() != DamageType.OUT_OF_WORLD && killer != victim) {
-            killer.sendMessage(MiniMessage.miniMessage().deserialize("<gray>◎ <white>You killed <yellow>"+victim.getName()+"</yellow></white> (+1)"));
-            rewardKiller(killer);
+        var damageSource = victim.getLastDamageCause();
+        if (damageSource != null) {
+            var source = damageSource.getDamageSource().getCausingEntity();
+            if (source instanceof Player killer && damageSource.getDamageSource().getDamageType() != DamageType.OUT_OF_WORLD && killer != victim) {
+                killer.sendMessage(MiniMessage.miniMessage().deserialize("<gray>◎ <white>You killed <yellow>"+victim.getName()+"</yellow></white> (+1)"));
+                rewardKiller(killer);
 
-            victim.sendMessage(MiniMessage.miniMessage().deserialize("<gray>☠ <white>You were killed by <red>"+killer.getName()+"</red>!"));
-            demeritVictim(victim);
-        } else if (event.getDamageSource().getDamageType() != DamageType.OUT_OF_WORLD) {
-            victim.sendMessage(MiniMessage.miniMessage().deserialize("<gray>☠ <white>You died!"));
-            demeritVictim(victim);
+                victim.sendMessage(MiniMessage.miniMessage().deserialize("<gray>☠ <white>You were killed by <red>"+killer.getName()+"</red>!"));
+                demeritVictim(victim);
+            } else if (damageSource.getDamageSource().getDamageType() != DamageType.OUT_OF_WORLD) {
+                victim.sendMessage(MiniMessage.miniMessage().deserialize("<gray>☠ <white>You died!"));
+                demeritVictim(victim);
+            }
         }
 
         victim.setHealth(20.0);
