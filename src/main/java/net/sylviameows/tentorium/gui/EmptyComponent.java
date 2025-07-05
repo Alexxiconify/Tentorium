@@ -27,7 +27,6 @@ public class EmptyComponent extends AbstractButton {
             var item = new ItemStack(material);
             var meta = item.getItemMeta();
             meta.displayName(Component.empty());
-            meta.setHideTooltip(true);
             item.setItemMeta(meta);
             stack = item;
         }

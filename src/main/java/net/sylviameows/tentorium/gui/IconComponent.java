@@ -34,7 +34,7 @@ public class IconComponent extends AbstractButton {
             meta.lore(new_lore);
         }
         item.setItemMeta(meta);
-        item.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP, ItemFlag.HIDE_ATTRIBUTES);
+        item.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         return item;
     }
 }

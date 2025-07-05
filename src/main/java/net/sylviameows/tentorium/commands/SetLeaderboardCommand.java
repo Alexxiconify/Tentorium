@@ -1,8 +1,6 @@
 package net.sylviameows.tentorium.commands;
 
-import net.sylviameows.tentorium.PlayerManager;
 import net.sylviameows.tentorium.TentoriumCore;
-import net.sylviameows.tentorium.modes.Bypass;
 import net.sylviameows.tentorium.modes.Mode;
 import net.sylviameows.tentorium.modes.TrackedScore;
 import org.bukkit.command.Command;

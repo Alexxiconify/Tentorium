@@ -22,7 +22,6 @@ import java.util.HashMap;
 public class TentoriumCore extends JavaPlugin {
     private static ComponentLogger LOGGER;
     private static TentoriumCore INSTANCE;
-    private static Config CONFIG;
     private static LeaderboardManager LEADERBOARD;
     private static SQLite DATABASE;
 
@@ -114,7 +113,7 @@ public class TentoriumCore extends JavaPlugin {
         logger().info("Commands registered!");
 
         // Initialize configuration
-        CONFIG = new Config(this);
+        new Config(this);
 
         // Initialize leaderboards
         logger().info("Initializing leaderboards...");
