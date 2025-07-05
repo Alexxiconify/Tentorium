@@ -27,12 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TNTSpleef extends Spleef {
-    private final Location SPAWN_LOCATION = new Location(Bukkit.getWorld("world"), -416.5, 49, -19.5, 90, 0);
-    private final Area SPAWN_AREA = new Area(
-            new Location(Bukkit.getWorld("world"), -423, 48, -16),
-            new Location(Bukkit.getWorld("world"), -414, 53, -24)
-    );
-    private final int VOID_LEVEL = 10;
 
     public TNTSpleef() {
         Bukkit.getScheduler().runTaskTimer(TentoriumCore.instance(), this::tick, 1L, 1L);
