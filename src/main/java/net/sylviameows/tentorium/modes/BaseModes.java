@@ -70,7 +70,7 @@ public class BaseModes {
             return getOptions().location();
         }
         default GameUtilities.Area lobby() {
-            return (GameUtilities.Area) getOptions().region();
+            return getOptions().region();
         }
         default int voidLevel() {
             return getOptions().voidLevel();
