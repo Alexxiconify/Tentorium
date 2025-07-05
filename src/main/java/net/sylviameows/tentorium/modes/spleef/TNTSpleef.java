@@ -2,6 +2,7 @@ package net.sylviameows.tentorium.modes.spleef;
 
 import com.fastasyncworldedit.core.function.mask.BlockMaskBuilder;
 import com.sk89q.worldedit.EditSession;
+import com.sk89q.worldedit.MaxChangedBlocksException;
 import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldedit.function.mask.Mask;
@@ -40,26 +41,33 @@ public class TNTSpleef extends Spleef {
     private void tick() {
         if (!active) return;
         alive.forEach(player -> {
+            if (player == null || !player.isOnline()) return;
+            
             var world = player.getWorld();
+            if (world == null) return;
+            
             var bounding_box = player.getBoundingBox();
 
-            var center = new Location(player.getWorld(), bounding_box.getCenterX(), bounding_box.getMinY(), bounding_box.getCenterZ());
+            var center = new Location(world, bounding_box.getCenterX(), bounding_box.getMinY(), bounding_box.getCenterZ());
             center.add(0, -0.5, 0);
             var center_block = world.getBlockAt(center);
 
             if (center_block.getType().hasGravity()) {
                 Bukkit.getScheduler().runTaskLater(TentoriumCore.instance(), () -> {
-                    center_block.setType(Material.AIR); // break block
-                    world.getBlockAt(center_block.getLocation().add(0, -1, 0)).setType(Material.AIR); // break tnt
+                    if (center_block.getType().hasGravity()) {
+                        center_block.setType(Material.AIR); // break block
+                        var tntLocation = center_block.getLocation().add(0, -1, 0);
+                        world.getBlockAt(tntLocation).setType(Material.AIR); // break tnt
+                    }
                 }, 4L);
                 return;
             }
 
             // backup detection
-            var min = new Location(player.getWorld(), bounding_box.getMinX(), bounding_box.getMinY(), bounding_box.getMinZ());
+            var min = new Location(world, bounding_box.getMinX(), bounding_box.getMinY(), bounding_box.getMinZ());
 
             Location[] corners = new Location[4];
-            corners[0] = min.add(0, -0.5, 0);
+            corners[0] = min.clone().add(0, -0.5, 0);
             corners[1] = min.clone().add(bounding_box.getWidthX(), 0, 0);
             corners[2] = min.clone().add(0, 0, bounding_box.getWidthZ());
             corners[3] = min.clone().add(bounding_box.getWidthX(), 0, bounding_box.getWidthZ());
@@ -69,8 +77,11 @@ public class TNTSpleef extends Spleef {
 
                 if (block.getType().hasGravity()) {
                     Bukkit.getScheduler().runTaskLater(TentoriumCore.instance(), () -> {
-                        block.setType(Material.AIR); // break block
-                        world.getBlockAt(location.add(0, -1, 0)).setType(Material.AIR); // break tnt
+                        if (block.getType().hasGravity()) {
+                            block.setType(Material.AIR); // break block
+                            var tntLocation = location.clone().add(0, -1, 0);
+                            world.getBlockAt(tntLocation).setType(Material.AIR); // break tnt
+                        }
                     }, 4L);
                 }
             }
@@ -98,7 +109,7 @@ public class TNTSpleef extends Spleef {
     @Override
     protected void refresh() {
         var world = BukkitAdapter.adapt(Bukkit.getWorld("world"));
-        try (EditSession session = WorldEdit.getInstance().newEditSessionBuilder().world(world).limitUnlimited().build()) {
+        try (EditSession session = WorldEdit.getInstance().newEditSessionBuilder().world(world).build()) {
             var floors = getOptions().floors();
             List<BlockType> layers = new ArrayList<>();
 
@@ -121,8 +132,12 @@ public class TNTSpleef extends Spleef {
                         BlockVector3.at(floors.x2(), y-1, floors.z2())
                 );
 
-                session.replaceBlocks(tnt_region, mask, BlockType.REGISTRY.get("minecraft:tnt"));
-                session.replaceBlocks(block_region, mask, layers.get(i));
+                try {
+                    session.replaceBlocks(tnt_region, mask, BlockType.REGISTRY.get("minecraft:tnt").getDefaultState());
+                    session.replaceBlocks(block_region, mask, layers.get(i).getDefaultState());
+                } catch (MaxChangedBlocksException e) {
+                    TentoriumCore.logger().warn("Failed to replace blocks in TNT Spleef: " + e.getMessage());
+                }
                 y = y - gap - 2 /* adds the tnt and following block we set to make it not wrong or whatever */;
             }
         }
