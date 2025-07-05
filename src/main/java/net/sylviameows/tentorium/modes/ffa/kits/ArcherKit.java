@@ -10,13 +10,13 @@ public class ArcherKit extends Kit {
     public ArcherKit() {
         items.put(0, ItemUtilities.createItem(Material.STONE_SWORD));
         items.put(1, ItemUtilities.createItem(Material.BOW, meta -> {
-            meta.addEnchant(Enchantment.ARROW_KNOCKBACK, 2, true);
-            meta.addEnchant(Enchantment.ARROW_DAMAGE, 1, true);
-            meta.addEnchant(Enchantment.ARROW_INFINITE, 1, true);
+            meta.addEnchant(Enchantment.PUNCH, 2, true);
+            meta.addEnchant(Enchantment.POWER, 1, true);
+            meta.addEnchant(Enchantment.INFINITY, 1, true);
         }));
         items.put(2, ItemUtilities.createItem(Material.SPLASH_POTION, meta -> {
             if (meta instanceof PotionMeta potion) {
-                potion.setBasePotionType(PotionType.SPEED);
+                potion.setBasePotionType(PotionType.SWIFTNESS);
             }
         }));
 
