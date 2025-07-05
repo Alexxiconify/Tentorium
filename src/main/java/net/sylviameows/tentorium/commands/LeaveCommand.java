@@ -1,7 +1,5 @@
 package net.sylviameows.tentorium.commands;
 
-import io.papermc.paper.command.brigadier.BasicCommand;
-import io.papermc.paper.command.brigadier.CommandSourceStack;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
 import net.sylviameows.tentorium.PlayerManager;
@@ -9,21 +7,21 @@ import net.sylviameows.tentorium.TentoriumCore;
 import net.sylviameows.tentorium.utilities.Palette;
 import net.sylviameows.tentorium.values.Spawn;
 import org.bukkit.Material;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.persistence.PersistentDataType;
+import org.jetbrains.annotations.NotNull;
 
 import static net.sylviameows.tentorium.SpawnListener.giveSelector;
 
-public class LeaveCommand implements BasicCommand {
+public class LeaveCommand implements CommandExecutor {
     @Override
-    public void execute(CommandSourceStack source, String[] args) {
-        CommandSender target = source.getExecutor();
-        if (target == null) target = source.getSender();
-
-        if (target instanceof Player player){
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
+        if (sender instanceof Player player) {
             var settings = PlayerManager.get(player);
 
             if (settings.mode() != null) {
@@ -38,7 +36,8 @@ public class LeaveCommand implements BasicCommand {
 
             giveSelector(inventory);
         } else {
-            target.sendMessage("You must be a player to run this command.");
+            sender.sendMessage("You must be a player to run this command.");
         }
+        return true;
     }
 }

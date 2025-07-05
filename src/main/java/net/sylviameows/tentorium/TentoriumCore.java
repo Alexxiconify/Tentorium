@@ -1,7 +1,5 @@
 package net.sylviameows.tentorium;
 
-import io.papermc.paper.command.brigadier.Commands;
-import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import net.kyori.adventure.text.logger.slf4j.ComponentLogger;
 import net.sylviameows.tentorium.commands.*;
 import net.sylviameows.tentorium.config.Config;
@@ -15,11 +13,11 @@ import net.sylviameows.tentorium.modes.spleef.ClassicSpleef;
 import net.sylviameows.tentorium.modes.spleef.TNTSpleef;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class TentoriumCore extends JavaPlugin {
     private static ComponentLogger LOGGER;
@@ -97,35 +95,23 @@ public class TentoriumCore extends JavaPlugin {
         }
         logger().info("Loaded " + modesLoaded + " game mode(s)!");
 
-        // Register commands using Paper's command system
-        var lem = this.getLifecycleManager();
-        lem.registerEventHandler(LifecycleEvents.COMMANDS, event -> {
-            final Commands commands = event.registrar();
-            
-            // Main commands
-            commands.register("join", "Join a specific game mode", List.of("j", "mode"), new JoinCommand());
-            commands.register("leave", "Leave current game mode and return to spawn", List.of("spawn", "lobby", "hub", "l"), new LeaveCommand());
-            commands.register("modes", "Open the mode selection GUI", new ModesCommand());
-            
-            // FFA commands
-            commands.register("kit", "Select a kit for FFA mode", List.of("kits"), new KitCommand());
-            
-            // Parkour commands
-            commands.register("select", "Select a parkour map", new SelectCommand());
-            
-            // Admin commands
-            commands.register("bypass", "Toggle spawn protection bypass", new BypassCommand());
-            commands.register("setleaderboard", "Set leaderboard location for a mode", List.of("slp"), new SetLeaderboardCommand());
-            
-            // Stats and leaderboard commands
-            commands.register("leaderboard", "View leaderboards for each game", new LeaderboardCommand());
-            commands.register("stats", "View stats for each game", new StatsCommand());
-            
-            // Register mode-specific commands
-            for (Mode mode : modes) {
-                commands.register(mode.id(), "Join " + mode.name().toString(), new ModeAlias(mode.id()));
-            }
-        });
+        // Register commands using standard Bukkit command system
+        logger().info("Registering commands...");
+        registerCommand("join", new JoinCommand());
+        registerCommand("leave", new LeaveCommand());
+        registerCommand("modes", new ModesCommand());
+        registerCommand("kit", new KitCommand());
+        registerCommand("select", new SelectCommand());
+        registerCommand("bypass", new BypassCommand());
+        registerCommand("setleaderboard", new SetLeaderboardCommand());
+        registerCommand("leaderboard", new LeaderboardCommand());
+        registerCommand("stats", new StatsCommand());
+        
+        // Register mode-specific commands
+        for (Mode mode : modes) {
+            registerCommand(mode.id(), new ModeAlias(mode.id()));
+        }
+        logger().info("Commands registered!");
 
         // Initialize configuration
         CONFIG = new Config(this);
@@ -136,6 +122,16 @@ public class TentoriumCore extends JavaPlugin {
         logger().info("Leaderboards initialized!");
 
         logger().info("Tentorium plugin enabled successfully!");
+    }
+
+    private void registerCommand(String name, Object executor) {
+        PluginCommand command = getCommand(name);
+        if (command != null) {
+            command.setExecutor((org.bukkit.command.CommandExecutor) executor);
+            if (executor instanceof org.bukkit.command.TabCompleter) {
+                command.setTabCompleter((org.bukkit.command.TabCompleter) executor);
+            }
+        }
     }
 
     @Override

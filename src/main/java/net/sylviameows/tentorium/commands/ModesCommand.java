@@ -1,21 +1,21 @@
 package net.sylviameows.tentorium.commands;
 
-import io.papermc.paper.command.brigadier.BasicCommand;
-import io.papermc.paper.command.brigadier.CommandSourceStack;
 import net.sylviameows.tentorium.gui.spawn.ModeSelectionGUI;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
-public class ModesCommand implements BasicCommand {
+public class ModesCommand implements CommandExecutor {
     @Override
-    public void execute(CommandSourceStack source, String[] args) {
-        CommandSender target = source.getExecutor();
-        if (target == null) target = source.getSender();
-
-        if (target instanceof Player player) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
+        if (sender instanceof Player player) {
             var gui = new ModeSelectionGUI();
             player.openInventory(gui.getInventory());
+        } else {
+            sender.sendMessage("You must be a player to run this command.");
         }
-
+        return true;
     }
 }

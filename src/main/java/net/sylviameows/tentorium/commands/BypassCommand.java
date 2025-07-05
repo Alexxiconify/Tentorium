@@ -1,21 +1,22 @@
 package net.sylviameows.tentorium.commands;
 
-import io.papermc.paper.command.brigadier.BasicCommand;
-import io.papermc.paper.command.brigadier.CommandSourceStack;
 import net.sylviameows.tentorium.PlayerManager;
 import net.sylviameows.tentorium.modes.Bypass;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.Nullable;
 
-public class BypassCommand implements BasicCommand {
-    @Override
-    public void execute(@NotNull CommandSourceStack source, String @NotNull [] args) {
-        CommandSender target = source.getExecutor();
-        if (target == null) target = source.getSender();
+import java.util.Collections;
+import java.util.List;
 
-        if (target instanceof Player player) {
+public class BypassCommand implements CommandExecutor, TabCompleter {
+    @Override
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
+        if (sender instanceof Player player) {
             var settings = PlayerManager.get(player);
             if (settings.mode() instanceof Bypass mode) {
                 mode.leave(player);
@@ -27,10 +28,11 @@ public class BypassCommand implements BasicCommand {
                 player.sendMessage("Enabled protection bypass.");
             }
         }
+        return true;
     }
 
     @Override
-    public @Nullable String permission() {
-        return "tentorium.bypass";
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
+        return Collections.emptyList();
     }
 }

@@ -1,37 +1,45 @@
 package net.sylviameows.tentorium.commands;
 
-import io.papermc.paper.command.brigadier.BasicCommand;
-import io.papermc.paper.command.brigadier.CommandSourceStack;
 import net.sylviameows.tentorium.TentoriumCore;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
-public class JoinCommand implements BasicCommand {
+public class JoinCommand implements CommandExecutor, TabCompleter {
     @Override
-    public void execute(@NotNull CommandSourceStack source, String @NotNull [] args) {
-        CommandSender target = source.getExecutor();
-        if (target == null) target = source.getSender();
-
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (args.length < 1) {
-            target.sendMessage("Not enough arguments");
-        } else if (target instanceof Player player){
-            var mode = TentoriumCore.modes.get(args[0]);
-            mode.join(player);
-        } else {
-            target.sendMessage("You must be a player to run this command.");
+            sender.sendMessage("Not enough arguments");
+            return true;
         }
+        
+        if (sender instanceof Player player) {
+            var mode = TentoriumCore.modes.get(args[0]);
+            if (mode != null) {
+                mode.join(player);
+            } else {
+                player.sendMessage("Unknown mode: " + args[0]);
+            }
+        } else {
+            sender.sendMessage("You must be a player to run this command.");
+        }
+        return true;
     }
 
     @Override
-    public Collection<String> suggest(@NotNull CommandSourceStack source, String @NotNull [] args) {
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
         if (args.length <= 1) {
-            Collection<String> suggestions = new ArrayList<>();
-            TentoriumCore.modes.forEach((id,_mode) -> {
+            List<String> suggestions = new ArrayList<>();
+            TentoriumCore.modes.forEach((id, _mode) -> {
                 suggestions.add(id);
             });
 

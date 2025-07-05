@@ -1,70 +1,68 @@
 package net.sylviameows.tentorium.commands;
 
-import io.papermc.paper.command.brigadier.BasicCommand;
-import io.papermc.paper.command.brigadier.CommandSourceStack;
 import net.kyori.adventure.text.Component;
 import net.sylviameows.tentorium.TentoriumCore;
 import net.sylviameows.tentorium.database.LeaderboardResponse;
 import net.sylviameows.tentorium.modes.TrackedScore;
 import net.sylviameows.tentorium.modes.Mode;
 import net.sylviameows.tentorium.utilities.Palette;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class LeaderboardCommand implements BasicCommand {
+public class LeaderboardCommand implements CommandExecutor, TabCompleter {
     @Override
-    public void execute(@NotNull CommandSourceStack source, String @NotNull [] args) {
-        CommandSender target = source.getExecutor();
-        if (target == null) target = source.getSender();
-
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (args.length < 1) {
-            target.sendMessage("Provide a mode argument to view a leaderboard.");
-        } else {
-            String mode_name = args[0];
-            Mode mode = TentoriumCore.modes.get(mode_name);
+            sender.sendMessage("Provide a mode argument to view a leaderboard.");
+            return true;
+        }
+        
+        String mode_name = args[0];
+        Mode mode = TentoriumCore.modes.get(mode_name);
 
-            if (mode instanceof TrackedScore tracked) {
-
-                LeaderboardResponse response;
-                if (target instanceof Player player) {
-                    response = tracked.getLeaderboard(player);
-                } else {
-                    response = tracked.getLeaderboard();
-                }
-
-                AtomicReference<Component> reference = new AtomicReference<>(Component.text("Leaderboard for "));
-                reference.getAndUpdate(component -> component.append(mode.name()));
-
-                response.forEach((place, lp) -> {
-                    if (lp == null) return;
-                    reference.getAndUpdate(component -> component.appendNewline());
-
-                    var line = Component.text(place+". "+lp.name()).color(Palette.WHITE)
-                            .append(Component.text(" - ").color(Palette.GRAY))
-                            .append(Component.text(lp.score()+" "+tracked.leaderboardStatName()).color(Palette.WHITE));
-                    reference.getAndUpdate(component -> component.append(line));
-                });
-
-                target.sendMessage(reference.get());
+        if (mode instanceof TrackedScore tracked) {
+            LeaderboardResponse response;
+            if (sender instanceof Player player) {
+                response = tracked.getLeaderboard(player);
             } else {
-                target.sendMessage("Mode does not have trackable stats.");
+                response = tracked.getLeaderboard();
             }
 
+            AtomicReference<Component> reference = new AtomicReference<>(Component.text("Leaderboard for "));
+            reference.getAndUpdate(component -> component.append(mode.name()));
 
+            response.forEach((place, lp) -> {
+                if (lp == null) return;
+                reference.getAndUpdate(component -> component.appendNewline());
+
+                var line = Component.text(place + ". " + lp.name()).color(Palette.WHITE)
+                        .append(Component.text(" - ").color(Palette.GRAY))
+                        .append(Component.text(lp.score() + " " + tracked.leaderboardStatName()).color(Palette.WHITE));
+                reference.getAndUpdate(component -> component.append(line));
+            });
+
+            sender.sendMessage(reference.get());
+        } else {
+            sender.sendMessage("Mode does not have trackable stats.");
         }
+        return true;
     }
 
     @Override
-    public Collection<String> suggest(@NotNull CommandSourceStack source, String @NotNull [] args) {
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
         if (args.length <= 1) {
-            Collection<String> suggestions = new ArrayList<>();
-            TentoriumCore.modes.forEach((id,mode) -> {
+            List<String> suggestions = new ArrayList<>();
+            TentoriumCore.modes.forEach((id, mode) -> {
                 if (!(mode instanceof TrackedScore)) return;
                 suggestions.add(id);
             });
