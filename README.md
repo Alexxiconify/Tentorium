@@ -69,6 +69,7 @@ mvn clean package
 ## Configuration
 
 The plugin creates a `config.yml` file with settings for:
+
 - Spawn location
 - Game mode areas and void levels
 - Spleef floor configurations

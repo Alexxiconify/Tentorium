@@ -72,7 +72,12 @@ public class SpawnListener implements Listener {
     @EventHandler
     public void interact(PlayerInteractEvent event) {
         if (event.getAction() == Action.RIGHT_CLICK_AIR && event.getHand() == EquipmentSlot.HAND) {
-            if (!event.getItem().getPersistentDataContainer().getOrDefault(TentoriumCore.identififer("mode_selector"), PersistentDataType.BOOLEAN, false)) return;
+            var item = event.getItem();
+            if (item != null && item.getItemMeta() != null) {
+                if (!item.getItemMeta().getPersistentDataContainer().getOrDefault(TentoriumCore.identififer("mode_selector"), PersistentDataType.BOOLEAN, false)) return;
+            } else {
+                return;
+            }
 
             var gui = new ModeSelectionGUI();
             event.getPlayer().openInventory(gui.getInventory());
