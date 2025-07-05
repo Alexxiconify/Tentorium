@@ -16,7 +16,7 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <paper.version>1.21.1-R0.1-SNAPSHOT</paper.version>
+        <paper.version>1.21.5-R0.1-SNAPSHOT</paper.version>
         <worldedit.version>7.2.15</worldedit.version>
         <sqlite.version>3.44.1.0</sqlite.version>
         <finalName>tentorium</finalName>
@@ -59,7 +59,6 @@
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.44.1.0</version>
-            <scope>compile</scope>
         </dependency>
 
 
@@ -103,10 +102,8 @@
                                 <filter>
                                     <artifact>org.xerial:sqlite-jdbc</artifact>
                                     <includes>
-                                        <include>org/sqlite/core/**</include>
-                                        <include>org/sqlite/jdbc/**</include>
-                                        <include>META-INF/services/org.sqlite.JDBC</include>
-                                        <include>META-INF/services/java.sql.Driver</include>
+                                        <include>org/sqlite/**</include>
+                                        <include>META-INF/services/**</include>
                                     </includes>
                                 </filter>
                                 <filter>
@@ -144,14 +141,7 @@
                                 </relocation>
                             </relocations>
                             <minimizeJar>true</minimizeJar>
-                            <artifactSet>
-                                <excludes>
-                                    <exclude>org.apache.commons:*</exclude>
-                                    <exclude>com.google.*:*</exclude>
-                                    <exclude>org.slf4j:*</exclude>
-                                    <exclude>org.apache.logging:*</exclude>
-                                </excludes>
-                            </artifactSet>
+
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">

@@ -50,7 +50,7 @@ public class SQLite extends Database {
         } catch (SQLException ex) {
             core.getLogger().log(Level.SEVERE,"SQLite exception on initialize", ex);
         } catch (ClassNotFoundException ex) {
-            core.getLogger().log(Level.SEVERE, "You need the SQLite JBDC library. Google it. Put it in /lib folder.");
+            core.getLogger().log(Level.SEVERE, "SQLite JDBC driver not found. This should be included in the shaded JAR.");
         }
         return null;
     }
@@ -58,12 +58,16 @@ public class SQLite extends Database {
     @Override
     public void load() {
         connection = getSQLConnection();
+        if (connection == null) {
+            core.getLogger().severe("Failed to establish SQLite connection. Plugin cannot start.");
+            return;
+        }
         try {
             Statement s = connection.createStatement();
             s.executeUpdate(CREATE_TABLE_STRING);
             s.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            core.getLogger().log(Level.SEVERE, "Failed to create SQLite table", e);
         }
         initialize();
     }
