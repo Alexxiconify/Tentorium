@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f0b62a1-8d41-4e0b-8e39-41b3598349dd" name="Changes" comment="0.0.0.1" />
+    <list default="true" id="6f0b62a1-8d41-4e0b-8e39-41b3598349dd" name="Changes" comment="0.0.0.1.1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +22,16 @@
       </state>
     </system>
   </component>
+  <component name="Git.Settings">
+    <option name="ADD_SUFFIX_TO_CHERRY_PICKS_OF_PUBLISHED_COMMITS" value="false" />
+    <option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false" />
+    <option name="SAVE_CHANGES_POLICY" value="STASH" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+    <option name="WARN_ABOUT_BAD_FILE_NAMES" value="false" />
+    <option name="WARN_ABOUT_CRLF" value="false" />
+    <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
+    <option name="WARN_ABOUT_LARGE_FILES" value="false" />
+  </component>
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
   "lastFilter": {
     "state": "OPEN",
@@ -37,11 +47,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Maven.Unnamed.executor": "Run",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "last_opened_file_path": "C:/Users/taylo/Documents/projects/Tentorium-main",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.35287356",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
   <component name="RunManager">
@@ -80,11 +92,32 @@
       <option name="project" value="LOCAL" />
       <updated>1751674539339</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="0.0.0.1.1">
+      <option name="closed" value="true" />
+      <created>1751674815928</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1751674815928</updated>
+    </task>
+    <task id="LOCAL-00005" summary="0.0.0.1.1">
+      <option name="closed" value="true" />
+      <created>1751674877390</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1751674877390</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="MARK_IGNORED_AS_EXCLUDED" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
     <MESSAGE value="0.0.0.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.0.1" />
+    <MESSAGE value="0.0.0.1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.0.1.1" />
   </component>
 </project>
