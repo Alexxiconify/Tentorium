@@ -18,7 +18,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 import java.util.HashMap;
 
-public class Parkour extends Mode {
+public class Parkour extends BaseModes.Mode {
     private final Location SPAWN_LOCATION = new Location(Bukkit.getWorld("world"), -39.5, 48, -3.5, 90, 0);
     private static final HashMap<String, Location> maps = new HashMap<>();
 
