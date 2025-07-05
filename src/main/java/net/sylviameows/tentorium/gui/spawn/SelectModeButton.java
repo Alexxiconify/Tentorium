@@ -1,7 +1,6 @@
 package net.sylviameows.tentorium.gui.spawn;
 
 import net.kyori.adventure.text.Component;
-import net.sylviameows.tentorium.PlayerManager;
 import net.sylviameows.tentorium.TentoriumCore;
 import net.sylviameows.tentorium.gui.IconComponent;
 import net.sylviameows.tentorium.utilities.gui.ClickableButton;

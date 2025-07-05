@@ -22,7 +22,6 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class LeaderboardManager {
     private final HashMap<Mode, Leaderboard> boards = new HashMap();
-    private LeaderboardTask task;
 
     public class Leaderboard {
         private Location location;
@@ -52,7 +51,6 @@ public class LeaderboardManager {
     private String NUMBER = "♯";
 
     public LeaderboardManager(TentoriumCore core) {
-        task = new LeaderboardTask(core);
 
         Bukkit.getWorlds().forEach(world -> {
             world.getEntitiesByClass(TextDisplay.class).forEach(entity -> {

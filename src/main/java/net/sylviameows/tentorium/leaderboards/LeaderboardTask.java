@@ -2,15 +2,10 @@ package net.sylviameows.tentorium.leaderboards;
 
 import net.sylviameows.tentorium.TentoriumCore;
 import net.sylviameows.tentorium.config.Config;
-import net.sylviameows.tentorium.database.Database;
-import net.sylviameows.tentorium.database.SQLite;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.io.Console;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
-
 public class LeaderboardTask extends BukkitRunnable {
     Calendar calendar = Calendar.getInstance();
 
