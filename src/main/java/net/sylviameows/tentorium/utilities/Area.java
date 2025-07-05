@@ -51,8 +51,8 @@ public class Area implements ConfigurationSerializable {
 
         var world = a.getWorld();
         for (int x = min_x; x < max_x; x++) {
-            for (int y = min_y; x < max_y; y++) {
-                for (int z = min_z; x < max_z; x++) {
+            for (int y = min_y; y < max_y; y++) {
+                for (int z = min_z; z < max_z; z++) {
                     var block = world.getBlockAt(x, y, z);
                     consumer.accept(block);
                 }

@@ -47,7 +47,7 @@ public class LeaderboardResponse {
 
         // fixme: this statement doesnt work to get the targets place.
         if (target != null) {
-            db.executeQuery("SELECT * FROM {{table}} ORDER BY "+stat+" DESC WHERE uuid = '"+ target.getUniqueId() +"';", result -> {
+            db.executeQuery("SELECT * FROM {{table}} WHERE uuid = '"+ target.getUniqueId() +"' ORDER BY "+stat+" DESC;", result -> {
                 try {
                     target_place = result.getRow();
                 } catch (SQLException e) {

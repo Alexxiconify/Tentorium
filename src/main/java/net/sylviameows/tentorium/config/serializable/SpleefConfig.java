@@ -3,7 +3,6 @@ package net.sylviameows.tentorium.config.serializable;
 import net.sylviameows.tentorium.config.serializable.spleef.FloorsConfig;
 import net.sylviameows.tentorium.utilities.Area;
 import org.bukkit.Location;
-import org.checkerframework.checker.units.qual.A;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
