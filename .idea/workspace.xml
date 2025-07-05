@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f0b62a1-8d41-4e0b-8e39-41b3598349dd" name="Changes" comment="0.0.0.1.6" />
+    <list default="true" id="6f0b62a1-8d41-4e0b-8e39-41b3598349dd" name="Changes" comment="0.0.0.1.7" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,30 +125,6 @@
     <option name="remove_strategy" value="true" />
   </component>
   <component name="TaskManager">
-    <task id="LOCAL-00002" summary="0.0.0.1">
-      <option name="closed" value="true" />
-      <created>1751674499608</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1751674499608</updated>
-    </task>
-    <task id="LOCAL-00003" summary="0.0.0.1">
-      <option name="closed" value="true" />
-      <created>1751674539339</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1751674539339</updated>
-    </task>
-    <task id="LOCAL-00004" summary="0.0.0.1.1">
-      <option name="closed" value="true" />
-      <created>1751674815928</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1751674815928</updated>
-    </task>
     <task id="LOCAL-00005" summary="0.0.0.1.1">
       <option name="closed" value="true" />
       <created>1751674877390</created>
@@ -525,7 +501,31 @@
       <option name="project" value="LOCAL" />
       <updated>1751678665567</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="0.0.0.1.6">
+      <option name="closed" value="true" />
+      <created>1751678718097</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1751678718097</updated>
+    </task>
+    <task id="LOCAL-00053" summary="0.0.0.1.6">
+      <option name="closed" value="true" />
+      <created>1751678864848</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1751678864848</updated>
+    </task>
+    <task id="LOCAL-00054" summary="0.0.0.1.7">
+      <option name="closed" value="true" />
+      <created>1751679040074</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1751679040074</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
@@ -556,7 +556,8 @@
     <MESSAGE value="0.0.0.1.4" />
     <MESSAGE value="0.0.0.1.5" />
     <MESSAGE value="0.0.0.1.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.0.1.6" />
+    <MESSAGE value="0.0.0.1.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.0.1.7" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
