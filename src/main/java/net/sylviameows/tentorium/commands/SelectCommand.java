@@ -19,7 +19,7 @@ public class SelectCommand implements CommandExecutor, TabCompleter {
         if (sender instanceof Player player) {
             var settings = PlayerManager.get(player);
 
-            if (settings.mode() instanceof Parkour parkour) {
+            if (settings.mode() instanceof Parkour) {
                 if (args.length < 1) {
                     player.sendMessage("Usage: /select <map>");
                     return true;
