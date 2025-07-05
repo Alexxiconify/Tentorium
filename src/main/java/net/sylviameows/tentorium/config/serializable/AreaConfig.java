@@ -46,21 +46,31 @@ public class AreaConfig implements ConfigurationSerializable {
     }
 
     public AreaConfig(Map<String, Object> args) {
-        List<?> list = (List<?>) args.get("location");
-        List<Double> coords = list.stream().map((value) -> {
-            if (value instanceof Double d) return d;
-            if (value instanceof Number number) return number.doubleValue();
-            return null;
-        }).toList();
+        Object locationObj = args.get("location");
+        double[] coords;
+        
+        if (locationObj instanceof double[] coordsArray) {
+            coords = coordsArray;
+        } else if (locationObj instanceof List<?> list) {
+            coords = list.stream()
+                .mapToDouble(value -> {
+                    if (value instanceof Double d) return d;
+                    if (value instanceof Number number) return number.doubleValue();
+                    return 0.0;
+                })
+                .toArray();
+        } else {
+            coords = new double[]{0.0, 0.0, 0.0, 0.0, 0.0};
+        }
 
         world = Bukkit.getWorld((String) args.get("world"));
         location = new Location(
                 world,
-                coords.get(0),
-                coords.get(1),
-                coords.get(2),
-                coords.get(3).floatValue(),
-                coords.get(4).floatValue()
+                coords[0],
+                coords[1],
+                coords[2],
+                (float) coords[3],
+                (float) coords[4]
         );
     }
 }

@@ -100,11 +100,34 @@ public class Area implements ConfigurationSerializable {
     }
 
     public static Area deserialize(Map<String, Object> args) {
-        List<Integer> a = (List<Integer>) args.get("a");
-        List<Integer> b = (List<Integer>) args.get("b");
+        Object aObj = args.get("a");
+        Object bObj = args.get("b");
+        
+        int[] aCoords;
+        int[] bCoords;
+        
+        if (aObj instanceof int[] aArray) {
+            aCoords = aArray;
+        } else if (aObj instanceof List<?> aList) {
+            aCoords = aList.stream()
+                .mapToInt(obj -> obj instanceof Number num ? num.intValue() : 0)
+                .toArray();
+        } else {
+            aCoords = new int[]{0, 0, 0};
+        }
+        
+        if (bObj instanceof int[] bArray) {
+            bCoords = bArray;
+        } else if (bObj instanceof List<?> bList) {
+            bCoords = bList.stream()
+                .mapToInt(obj -> obj instanceof Number num ? num.intValue() : 0)
+                .toArray();
+        } else {
+            bCoords = new int[]{0, 0, 0};
+        }
 
-        var location_a = new Location(Bukkit.getWorld("world"), a.get(0), a.get(1), a.get(2));
-        var location_b = new Location(Bukkit.getWorld("world"), b.get(0), b.get(1), b.get(2));
+        var location_a = new Location(Bukkit.getWorld("world"), aCoords[0], aCoords[1], aCoords[2]);
+        var location_b = new Location(Bukkit.getWorld("world"), bCoords[0], bCoords[1], bCoords[2]);
 
         return new Area(location_a, location_b);
     }

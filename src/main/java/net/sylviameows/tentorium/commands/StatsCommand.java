@@ -1,9 +1,7 @@
 package net.sylviameows.tentorium.commands;
 
 import net.kyori.adventure.text.Component;
-import net.sylviameows.tentorium.PlayerManager;
 import net.sylviameows.tentorium.TentoriumCore;
-import net.sylviameows.tentorium.modes.Bypass;
 import net.sylviameows.tentorium.modes.TrackedScore;
 import net.sylviameows.tentorium.utilities.Palette;
 import org.bukkit.command.Command;

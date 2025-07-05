@@ -19,7 +19,14 @@ public class TNTFloors extends FloorsConfig {
     public TNTFloors(Map<String, Object> args) {
         super(args);
 
-        this.layers = (List<String>) args.get("layers");
+        Object layersObj = args.get("layers");
+        if (layersObj instanceof List<?> layersList) {
+            this.layers = layersList.stream()
+                .map(obj -> obj != null ? obj.toString() : "")
+                .toList();
+        } else {
+            this.layers = new ArrayList<>();
+        }
     }
 
     public List<String> layers() {
