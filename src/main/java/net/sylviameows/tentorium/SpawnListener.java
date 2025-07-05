@@ -3,7 +3,7 @@ package net.sylviameows.tentorium;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
 import net.sylviameows.tentorium.gui.GameModeGUIs;
-import net.sylviameows.tentorium.utilities.Palette;
+import net.sylviameows.tentorium.utilities.GameUtilities;
 import net.sylviameows.tentorium.values.Spawn;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -30,7 +30,7 @@ public class SpawnListener implements Listener {
 
     @EventHandler
     public void join(PlayerJoinEvent event) {
-        event.joinMessage(event.getPlayer().name().color(Palette.YELLOW).append(Component.text(" joined the game!")));
+        event.joinMessage(event.getPlayer().name().color(GameUtilities.Palette.YELLOW).append(Component.text(" joined the game!")));
 
         var player = event.getPlayer();
         player.teleportAsync(Spawn.LOCATION);
@@ -44,7 +44,7 @@ public class SpawnListener implements Listener {
 
     @EventHandler
     public void join(PlayerQuitEvent event) {
-        event.quitMessage(event.getPlayer().name().color(Palette.YELLOW).append(Component.text(" left the game!")));
+        event.quitMessage(event.getPlayer().name().color(GameUtilities.Palette.YELLOW).append(Component.text(" left the game!")));
     }
 
     @EventHandler
@@ -93,7 +93,7 @@ public class SpawnListener implements Listener {
     public static void giveSelector(PlayerInventory inventory) {
         var compass = new ItemStack(Material.COMPASS);
         compass.editMeta(meta -> {
-            meta.displayName(Component.text("Mode Selector").color(Palette.RED_LIGHT).decorationIfAbsent(TextDecoration.ITALIC, TextDecoration.State.FALSE));
+            meta.displayName(Component.text("Mode Selector").color(GameUtilities.Palette.RED_LIGHT).decorationIfAbsent(TextDecoration.ITALIC, TextDecoration.State.FALSE));
             meta.getPersistentDataContainer().set(TentoriumCore.identififer("mode_selector"), PersistentDataType.BOOLEAN, true);
         });
         inventory.setItem(4, compass);
