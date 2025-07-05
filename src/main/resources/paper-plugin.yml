@@ -1,0 +1,62 @@
+name: Tentorium
+version: 1.0.0
+main: net.sylviameows.tentorium.TentoriumCore
+api-version: 1.21
+authors:
+  - sylviameows
+description: A fun minigames plugin for the Tentorium server
+website: https://github.com/sylviameows/tentorium
+libraries:
+  - org.xerial:sqlite-jdbc:3.44.1.0
+
+permissions:
+  tentorium.bypass:
+    description: "Allows players to run the bypass command and disable spawn protections."
+    default: op
+  tentorium.set_leaderboard:
+    description: "Allows setting leaderboard locations."
+    default: op
+  tentorium.*:
+    description: "Gives access to all Tentorium commands."
+    default: op
+    children:
+      tentorium.bypass: true
+      tentorium.set_leaderboard: true
+
+commands:
+  join:
+    description: "Join a specific game mode"
+    usage: "/join <mode>"
+    permission: tentorium.join
+  leave:
+    description: "Leave current game mode and return to spawn"
+    usage: "/leave"
+    permission: tentorium.leave
+  kit:
+    description: "Select a kit for FFA mode"
+    usage: "/kit [kit_name]"
+    permission: tentorium.kit
+  modes:
+    description: "Open the mode selection GUI"
+    usage: "/modes"
+    permission: tentorium.modes
+  stats:
+    description: "View your game statistics"
+    usage: "/stats"
+    permission: tentorium.stats
+  leaderboard:
+    description: "View leaderboard for a specific mode"
+    usage: "/leaderboard <mode>"
+    permission: tentorium.leaderboard
+  setleaderboard:
+    description: "Set leaderboard location for a mode"
+    usage: "/setleaderboard <mode>"
+    permission: tentorium.set_leaderboard
+  bypass:
+    description: "Toggle spawn protection bypass"
+    usage: "/bypass"
+    permission: tentorium.bypass
+  select:
+    description: "Select a parkour map"
+    usage: "/select <map>"
+    permission: tentorium.select 
