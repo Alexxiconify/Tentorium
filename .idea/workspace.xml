@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f0b62a1-8d41-4e0b-8e39-41b3598349dd" name="Changes" comment="0.0.0.1.8">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/database/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/database/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/database/Error.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/database/Errors.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/database/LeaderboardResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/database/LeaderboardResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/database/SQLite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/database/SQLite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/gui/EmptyComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/gui/IconComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/gui/ffa/KitSelectionGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/gui/ffa/SelectKitButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/gui/spawn/ModeSelectionGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/gui/spawn/SelectModeButton.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/modes/FFAModes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/modes/GameKits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/TentoriumPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/TentoriumPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/config/serializable/ModeConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/config/serializable/ModeConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/modes/BaseModes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/modes/BaseModes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,22 +131,6 @@
     <option name="remove_strategy" value="true" />
   </component>
   <component name="TaskManager">
-    <task id="LOCAL-00007" summary="0.0.0.1.1">
-      <option name="closed" value="true" />
-      <created>1751674944722</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1751674944722</updated>
-    </task>
-    <task id="LOCAL-00008" summary="0.0.0.1.2">
-      <option name="closed" value="true" />
-      <created>1751675223965</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1751675223965</updated>
-    </task>
     <task id="LOCAL-00009" summary="0.0.0.1.2">
       <option name="closed" value="true" />
       <created>1751675357302</created>
@@ -537,7 +515,23 @@
       <option name="project" value="LOCAL" />
       <updated>1751679236599</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="0.0.0.1.8">
+      <option name="closed" value="true" />
+      <created>1751679786981</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1751679786983</updated>
+    </task>
+    <task id="LOCAL-00058" summary="0.0.0.1.8">
+      <option name="closed" value="true" />
+      <created>1751679903706</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1751679903706</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="UpdateCopyrightCheckinHandler">

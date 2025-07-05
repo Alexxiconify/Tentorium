@@ -1,6 +1,6 @@
 package net.sylviameows.tentorium;
 
-import net.sylviameows.tentorium.modes.Mode;
+import net.sylviameows.tentorium.modes.BaseModes.Mode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 

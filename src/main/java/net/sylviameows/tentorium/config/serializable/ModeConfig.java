@@ -1,6 +1,6 @@
 package net.sylviameows.tentorium.config.serializable;
 
-import net.sylviameows.tentorium.utilities.Area;
+import net.sylviameows.tentorium.utilities.GameUtilities;
 import org.bukkit.Location;
 import org.jetbrains.annotations.NotNull;
 
@@ -10,16 +10,16 @@ public class ModeConfig extends AreaConfig {
     public static String ALIAS = "mode";
 
     protected int void_level;
-    protected Area spawn_area;
+    protected GameUtilities.Area spawn_area;
 
-    public ModeConfig(Location location, int void_level, Area spawn_area) {
+    public ModeConfig(Location location, int void_level, GameUtilities.Area spawn_area) {
         super(location);
 
         this.void_level = void_level;
         this.spawn_area = spawn_area;
     }
 
-    private ModeConfig(AreaConfig config, int void_level, Area spawn_area) {
+    private ModeConfig(AreaConfig config, int void_level, GameUtilities.Area spawn_area) {
         this(config.location(), void_level, spawn_area);
     }
 
@@ -31,11 +31,11 @@ public class ModeConfig extends AreaConfig {
         void_level = y;
     }
 
-    public Area region() {
+    public GameUtilities.Area region() {
         return spawn_area;
     }
 
-    public void region(Area area) {
+    public void region(GameUtilities.Area area) {
         spawn_area = area;
     }
 
@@ -56,7 +56,7 @@ public class ModeConfig extends AreaConfig {
         return new ModeConfig(
                 config,
                 (int) args.get("void_level"),
-                (Area) args.get("region")
+                (GameUtilities.Area) args.get("region")
         );
     }
 }
