@@ -96,19 +96,19 @@ public class TentoriumCore extends JavaPlugin {
 
         // Register commands using Paper command system
         logger().info("Registering commands...");
-        registerCommand("join", new JoinCommand());
-        registerCommand("leave", new LeaveCommand());
-        registerCommand("modes", new ModesCommand());
-        registerCommand("kit", new KitCommand());
-        registerCommand("select", new SelectCommand());
-        registerCommand("bypass", new BypassCommand());
-        registerCommand("setleaderboard", new SetLeaderboardCommand());
-        registerCommand("leaderboard", new LeaderboardCommand());
-        registerCommand("stats", new StatsCommand());
+        registerCommand("join", new GameCommands.JoinCommand());
+        registerCommand("leave", new GameCommands.LeaveCommand());
+        registerCommand("modes", new GameCommands.ModesCommand());
+        registerCommand("kit", new GameCommands.KitCommand());
+        registerCommand("select", new GameCommands.SelectCommand());
+        registerCommand("bypass", new GameCommands.BypassCommand());
+        registerCommand("setleaderboard", new GameCommands.SetLeaderboardCommand());
+        registerCommand("leaderboard", new GameCommands.LeaderboardCommand());
+        registerCommand("stats", new GameCommands.StatsCommand());
         
         // Register mode-specific commands
         for (Mode mode : modes) {
-            registerCommand(mode.id(), new ModeAlias(mode.id()));
+            registerCommand(mode.id(), new GameCommands.ModeAlias(mode.id()));
         }
         logger().info("Commands registered!");
 

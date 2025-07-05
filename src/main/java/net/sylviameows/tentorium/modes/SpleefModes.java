@@ -40,7 +40,7 @@ import java.util.List;
 
 public class SpleefModes {
     // Base Spleef class
-    public static abstract class Spleef extends BaseModes.Mode implements TrackedScore, ConfigurableMode {
+    public static abstract class Spleef extends BaseModes.Mode implements BaseModes.TrackedScore, BaseModes.ConfigurableMode {
         protected boolean active = false;
         protected ArrayList<Player> alive = new ArrayList<>();
         protected SpleefConfig options;
