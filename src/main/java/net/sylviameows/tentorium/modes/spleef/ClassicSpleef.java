@@ -2,6 +2,7 @@ package net.sylviameows.tentorium.modes.spleef;
 
 import com.fastasyncworldedit.core.function.mask.BlockMaskBuilder;
 import com.sk89q.worldedit.EditSession;
+import com.sk89q.worldedit.MaxChangedBlocksException;
 import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldedit.function.mask.Mask;
@@ -9,6 +10,7 @@ import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.regions.CuboidRegion;
 import com.sk89q.worldedit.world.block.BlockType;
 import net.kyori.adventure.text.Component;
+import net.sylviameows.tentorium.TentoriumCore;
 import net.sylviameows.tentorium.config.Config;
 import net.sylviameows.tentorium.config.serializable.ModeConfig;
 import net.sylviameows.tentorium.config.serializable.SpleefConfig;
@@ -42,13 +44,13 @@ public class ClassicSpleef extends Spleef {
     protected void setupPlayer(Player player) {
         var inventory = player.getInventory();
         inventory.clear();
-        inventory.addItem(ItemUtilities.createItem(Material.DIAMOND_SHOVEL, meta -> meta.addEnchant(Enchantment.EFFICIENCY, 5, true)));
+        inventory.addItem(ItemUtilities.createItem(Material.DIAMOND_SHOVEL, meta -> meta.addEnchant(Enchantment.DIG_SPEED, 5, true)));
     }
 
     @Override
     protected void refresh() {
         var world = BukkitAdapter.adapt(Bukkit.getWorld("world"));
-        try (EditSession session = WorldEdit.getInstance().newEditSessionBuilder().world(world).limitUnlimited().build()) {
+        try (EditSession session = WorldEdit.getInstance().newEditSessionBuilder().world(world).build()) {
             var floors = getOptions().floors();
 
             int layers = ((ClassicFloors) floors).layers();
@@ -63,7 +65,11 @@ public class ClassicSpleef extends Spleef {
                         BlockVector3.at(floors.x2(), y, floors.z2())
                 );
 
-                session.replaceBlocks(region, mask, BlockType.REGISTRY.get("minecraft:snow_block"));
+                try {
+                    session.replaceBlocks(region, mask, BlockType.REGISTRY.get("minecraft:snow_block").getDefaultState());
+                } catch (MaxChangedBlocksException e) {
+                    TentoriumCore.logger().warn("Failed to replace blocks in Classic Spleef: " + e.getMessage());
+                }
                 y = y - gap - 1 /* adds the one block we set to make it not wrong or whatever */;
             }
         }
