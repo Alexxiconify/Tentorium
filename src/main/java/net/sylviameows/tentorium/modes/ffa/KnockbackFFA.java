@@ -1,6 +1,7 @@
 package net.sylviameows.tentorium.modes.ffa;
 
 import net.kyori.adventure.text.Component;
+import net.sylviameows.tentorium.TentoriumCore;
 import net.sylviameows.tentorium.config.Config;
 import net.sylviameows.tentorium.config.serializable.ModeConfig;
 import net.sylviameows.tentorium.utilities.Area;
@@ -23,7 +24,11 @@ public class KnockbackFFA extends FFA {
     protected void respawn(Player player) {
         super.respawn(player);
 
-        player.teleportAsync(spawn());
+        player.teleportAsync(spawn()).whenComplete((result, ex) -> {
+            if (ex != null) {
+                TentoriumCore.logger().warn("Failed to teleport player " + player.getName() + " to spawn: " + ex.getMessage());
+            }
+        });
         player.clearActivePotionEffects();
 //        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 4 * 20, 0, true, false, true));
     }
@@ -60,7 +65,6 @@ public class KnockbackFFA extends FFA {
         var item = new ItemStack(WEAPON_MATERIAL, 1);
         item.editMeta(meta -> {
             meta.setUnbreakable(true);
-            meta.setFood(null);
             meta.addEnchant(Enchantment.KNOCKBACK, 2, true);
             meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         });
