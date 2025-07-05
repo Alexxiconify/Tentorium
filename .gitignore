@@ -92,4 +92,54 @@ replay_pid*
 .Spotlight-V100
 .Trashes
 ehthumbs.db
-Thumbs.db 
+Thumbs.db
+
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# Gradle (if switching back)
+.gradle/
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+.gradletasknamecache
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.properties
+mvnw
+mvnw.cmd
+
+# Server files
+server/
+paper.jar
+spigot.jar
+craftbukkit.jar
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Database files
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Configuration backups
+config.yml.bak
+*.yml.bak
+*.yaml.bak
+
+# Test files
+test-output/
+coverage/
+.coverage 
