@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f0b62a1-8d41-4e0b-8e39-41b3598349dd" name="Changes" comment="0.0.0.1.2">
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/config/serializable/SpleefConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/config/serializable/SpleefConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/database/LeaderboardResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/database/LeaderboardResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/utilities/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/sylviameows/tentorium/utilities/Area.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/net/sylviameows/tentorium/config/serializable/SpleefConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/sylviameows/tentorium/config/serializable/SpleefConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/net/sylviameows/tentorium/database/LeaderboardResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/sylviameows/tentorium/database/LeaderboardResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/net/sylviameows/tentorium/utilities/Area.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/sylviameows/tentorium/utilities/Area.class" afterDir="false" />
-    </list>
+    <list default="true" id="6f0b62a1-8d41-4e0b-8e39-41b3598349dd" name="Changes" comment="0.0.0.1.3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,29 +47,32 @@
     &quot;accountId&quot;: &quot;74d678d2-56e1-432b-879c-bdb58527fff9&quot;
   }
 }</component>
+  <component name="MaliciousPackageCheckinHandlerState">
+    <option name="packageCheck" value="true" />
+  </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="2" id="Remove" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.Unnamed.executor": "Run",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "last_opened_file_path": "C:/Users/taylo/Documents/projects/Tentorium-main",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.35287356",
-    "settings.editor.selected.configurable": "Shelf.Project.Settings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/taylo/Documents/projects/Tentorium-main&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.35287356&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Shelf.Project.Settings&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReadonlyStatusHandler">
     <option name="SHOW_DIALOG" value="false" />
   </component>
@@ -159,8 +155,43 @@
       <option name="project" value="LOCAL" />
       <updated>1751675223965</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="0.0.0.1.2">
+      <option name="closed" value="true" />
+      <created>1751675357302</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1751675357302</updated>
+    </task>
+    <task id="LOCAL-00010" summary="0.0.0.1.2">
+      <option name="closed" value="true" />
+      <created>1751675360378</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1751675360378</updated>
+    </task>
+    <task id="LOCAL-00011" summary="0.0.0.1.3">
+      <option name="closed" value="true" />
+      <created>1751675509068</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1751675509069</updated>
+    </task>
+    <task id="LOCAL-00012" summary="0.0.0.1.3">
+      <option name="closed" value="true" />
+      <created>1751675611934</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1751675611934</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -174,9 +205,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CODE_SMELLS_PROFILE" value="Project Default" />
-    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="MARK_IGNORED_AS_EXCLUDED" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
@@ -184,7 +214,10 @@
     <MESSAGE value="0.0.0.1" />
     <MESSAGE value="0.0.0.1.1" />
     <MESSAGE value="0.0.0.1.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.0.0.1.2" />
-    <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
+    <MESSAGE value="0.0.0.1.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.0.0.1.3" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
