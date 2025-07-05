@@ -2,7 +2,7 @@ package net.sylviameows.tentorium;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
-import net.sylviameows.tentorium.gui.spawn.ModeSelectionGUI;
+import net.sylviameows.tentorium.gui.GameModeGUIs;
 import net.sylviameows.tentorium.utilities.Palette;
 import net.sylviameows.tentorium.values.Spawn;
 import org.bukkit.Material;
@@ -78,7 +78,7 @@ public class SpawnListener implements Listener {
                 return;
             }
 
-            var gui = new ModeSelectionGUI();
+            var gui = new GameModeGUIs.ModeSelectionGUI();
             event.getPlayer().openInventory(gui.getInventory());
         }
     }
