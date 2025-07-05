@@ -8,7 +8,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,12 +21,16 @@ public class SelectCommand implements CommandExecutor, TabCompleter {
 
             if (settings.mode() instanceof Parkour parkour) {
                 if (args.length < 1) {
-                    // todo: gui?
                     player.sendMessage("Usage: /select <map>");
                     return true;
                 }
 
-                var map = args[0].toLowerCase();
+                String map = args[0];
+                if (map == null || map.isEmpty()) {
+                    player.sendMessage("Usage: /select <map>");
+                    return true;
+                }
+                map = map.toLowerCase();
                 if (Parkour.maps().containsKey(map)) {
                     settings.parkour().map(map);
                     var location = Parkour.maps().get(map);
@@ -47,7 +50,7 @@ public class SelectCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
         if (args.length <= 1) {
             List<String> suggestions = new ArrayList<>();
             Parkour.maps().forEach((id, _kit) -> {
