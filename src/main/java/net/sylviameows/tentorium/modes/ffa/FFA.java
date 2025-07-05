@@ -57,7 +57,7 @@ public abstract class FFA extends Mode implements TrackedScore, ConfigurableMode
 
         player.setFoodLevel(20);
         player.setSaturation(10);
-    };
+    }
 
     abstract void giveKit(Player player);
 
