@@ -94,7 +94,12 @@ public class KitFFA extends FFA {
         super.respawn(player);
 
         var tp = player.teleportAsync(spawn());
-        tp.whenComplete((result, ex) -> fighting.remove(player));
+        tp.whenComplete((result, ex) -> {
+            if (ex != null) {
+                TentoriumCore.logger().warn("Failed to teleport player " + player.getName() + " to spawn: " + ex.getMessage());
+            }
+            fighting.remove(player);
+        });
 
         player.clearActivePotionEffects();
     }
@@ -112,7 +117,9 @@ public class KitFFA extends FFA {
         }
 
         Kit kit = kits.get(settings.kit());
-        kit.apply(player);
+        if (kit != null) {
+            kit.apply(player);
+        }
         giveSelector(player);
     }
 
@@ -172,7 +179,12 @@ public class KitFFA extends FFA {
     @EventHandler
     public void interact(PlayerInteractEvent event) {
         if (event.getAction() == Action.RIGHT_CLICK_AIR && event.getHand() == EquipmentSlot.HAND) {
-            if (!event.getItem().getPersistentDataContainer().getOrDefault(TentoriumCore.identififer("select_kit"), PersistentDataType.BOOLEAN, false)) return;
+            var item = event.getItem();
+            if (item != null && item.getItemMeta() != null) {
+                if (!item.getItemMeta().getPersistentDataContainer().getOrDefault(TentoriumCore.identififer("select_kit"), PersistentDataType.BOOLEAN, false)) return;
+            } else {
+                return;
+            }
 
             var gui = new KitSelectionGUI();
             event.getPlayer().openInventory(gui.getInventory());
@@ -223,11 +235,9 @@ public class KitFFA extends FFA {
         fighting.add(player);
 
         var inventory = player.getInventory();
-        try {
-            int slot = inventory.first(Material.CHEST_MINECART);
+        int slot = inventory.first(Material.CHEST_MINECART);
+        if (slot != -1) {
             inventory.clear(slot);
-        } catch (Exception ignored) {
-
         }
     }
 
