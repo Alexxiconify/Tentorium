@@ -12,7 +12,6 @@ import net.sylviameows.tentorium.modes.ffa.KitFFA;
 import net.sylviameows.tentorium.modes.ffa.KnockbackFFA;
 import net.sylviameows.tentorium.modes.spleef.ClassicSpleef;
 import net.sylviameows.tentorium.modes.spleef.TNTSpleef;
-import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.event.Listener;
@@ -70,7 +69,7 @@ public class TentoriumCore extends JavaPlugin {
         };
 
         int eventsLoaded = 0;
-        var pm = Bukkit.getPluginManager();
+        var pm = getServer().getPluginManager();
         for (Listener listener : events) {
             pm.registerEvents(listener, this);
             eventsLoaded++;
@@ -95,7 +94,7 @@ public class TentoriumCore extends JavaPlugin {
         }
         logger().info("Loaded " + modesLoaded + " game mode(s)!");
 
-        // Register commands using standard Bukkit command system
+        // Register commands using Paper command system
         logger().info("Registering commands...");
         registerCommand("join", new JoinCommand());
         registerCommand("leave", new LeaveCommand());
