@@ -6,8 +6,6 @@ import net.kyori.adventure.text.format.TextDecoration;
 import net.sylviameows.tentorium.modes.ffa.kits.Kit;
 import net.sylviameows.tentorium.utilities.ItemUtilities;
 import org.bukkit.Material;
-import org.bukkit.inventory.meta.PotionMeta;
-import org.bukkit.potion.PotionType;
 
 import java.util.List;
 
@@ -17,11 +15,7 @@ public class SpiderKit extends Kit {
         items.put(1, ItemUtilities.createItem(Material.COBWEB, 12, meta -> {
             meta.lore(List.of(Component.text("Will disappear after 12 seconds").color(NamedTextColor.GRAY).decorationIfAbsent(TextDecoration.ITALIC, TextDecoration.State.FALSE)));
         }));
-        items.put(8, ItemUtilities.createItem(Material.SPLASH_POTION, meta -> {
-            if (meta instanceof PotionMeta) {
-                ((PotionMeta) meta).setBasePotionType(PotionType.WEAVING);
-            }
-        }));
+        items.put(8, ItemUtilities.createItem(Material.GOLDEN_APPLE));
 
         items.put(36, ItemUtilities.createItem(Material.CHAINMAIL_BOOTS));
         items.put(37, ItemUtilities.createItem(Material.CHAINMAIL_LEGGINGS));
