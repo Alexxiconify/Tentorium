@@ -9,7 +9,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,7 +27,12 @@ public class KitCommand implements CommandExecutor, TabCompleter {
                     return true;
                 }
 
-                var kit = args[0].toLowerCase();
+                String kit = args[0];
+                if (kit == null || kit.isEmpty()) {
+                    player.sendMessage("Usage: /kit <kit_name>");
+                    return true;
+                }
+                kit = kit.toLowerCase();
                 if (KitFFA.kits().containsKey(kit) || kit.equals("shuffle")) {
                     settings.ffa().kit(kit);
                     player.sendMessage("Kit selected: " + kit);
@@ -45,7 +49,7 @@ public class KitCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
         if (args.length <= 1) {
             List<String> suggestions = new ArrayList<>();
             KitFFA.kits().forEach((id, _kit) -> {

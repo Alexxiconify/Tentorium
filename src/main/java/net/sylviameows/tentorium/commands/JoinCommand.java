@@ -7,7 +7,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -18,16 +17,21 @@ public class JoinCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (args.length < 1) {
-            sender.sendMessage("Not enough arguments");
+            sender.sendMessage("Usage: /join <mode>");
             return true;
         }
         
         if (sender instanceof Player player) {
-            var mode = TentoriumCore.modes.get(args[0]);
+            String modeName = args[0];
+            if (modeName == null || modeName.isEmpty()) {
+                player.sendMessage("Unknown mode: " + modeName);
+                return true;
+            }
+            var mode = TentoriumCore.modes.get(modeName);
             if (mode != null) {
                 mode.join(player);
             } else {
-                player.sendMessage("Unknown mode: " + args[0]);
+                player.sendMessage("Unknown mode: " + modeName);
             }
         } else {
             sender.sendMessage("You must be a player to run this command.");
@@ -36,7 +40,7 @@ public class JoinCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
         if (args.length <= 1) {
             List<String> suggestions = new ArrayList<>();
             TentoriumCore.modes.forEach((id, _mode) -> {
