@@ -2,7 +2,6 @@ package net.sylviameows.tentorium;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
-import net.sylviameows.tentorium.commands.LeaveCommand;
 import net.sylviameows.tentorium.gui.spawn.ModeSelectionGUI;
 import net.sylviameows.tentorium.utilities.Palette;
 import net.sylviameows.tentorium.values.Spawn;
